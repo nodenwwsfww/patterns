@@ -1,0 +1,106 @@
+{"level":"error","message":"Invalid figure type on line 1: Rectangle;1;0,0,10,0,10,10,0,10\r"}
+{"level":"error","message":"Invalid figure type on line 2: Cone;2;0,0,0,10;5"}
+{"level":"error","message":"Invalid figure type on line 1: Rectangle;1;0,0,10,0,10,10,0,10\r"}
+{"level":"error","message":"Invalid figure type on line 2: Cone;2;0,0,0,10;5"}
+{"level":"error","message":"Invalid figure type on line 1: Rectangle;1;0,0,10,0,10,10,0,10\r"}
+{"level":"error","message":"Invalid figure type on line 2: Cone;2;0,0,0,10;5"}
+{"level":"error","message":"Invalid figure type on line 1: Rectangle;1;0,0,10,0,10,10,0,10\r"}
+{"level":"error","message":"Invalid figure type on line 2: Cone;2;0,0,0,10;5"}
+{"level":"error","message":"Invalid figure type on line 1: Rectangle;1;0,0,10,0,10,10,0,10\r"}
+{"level":"error","message":"Invalid figure type on line 2: Cone;2;0,0,0,10;5"}
+{"level":"error","message":"Invalid figure type on line 1: Rectangle;1;0,0,10,0,10,10,0,10\r"}
+{"level":"error","message":"Invalid figure type on line 2: Cone;2;0,0,0,10;5"}
+{"level":"error","message":" Invalid figure type on line 1: Rectangle;1;0,0,10,0,10,10,0,10\r"}
+{"level":"error","message":" Invalid figure type on line 2: Cone;2;0,0,0,10;5"}
+{"level":"error","message":"Invalid data for Rectangle on line 1"}
+{"level":"error","message":"Invalid shape data"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Invalid data for Rectangle on line 1, data = 1;0,0,10,0,10,10,0,10\r"}
+{"level":"error","message":"Invalid shape data"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Invalid data for Rectangle on line 1, data = 1;0,0,10,0,10,10,0,10\r"}
+{"level":"error","message":"Invalid shape data"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Invalid data for Rectangle on line 1, data = 1;0,0,10,0,10,10,0,10\r"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Error on line 1: Cannot read properties of undefined (reading 'split')"}
+{"level":"error","message":"Error on line 2: Cannot read properties of undefined (reading 'split')"}
+{"level":"error","message":"Error on line 1: Cannot read properties of undefined (reading 'split')"}
+{"level":"error","message":"Error on line 2: Cannot read properties of undefined (reading 'split')"}
+{"level":"error","message":"Invalid data for Rectangle on line 1"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Invalid data for Rectangle on line 1"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Invalid data for Rectangle on line 1"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Invalid data for Rectangle on line 1"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Invalid data for Rectangle on line 1"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Invalid data for Rectangle on line 1"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Invalid data for Rectangle on line 1"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Invalid data for Rectangle on line 1"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Invalid data for Rectangle on line 1"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Invalid data for Rectangle on line 1"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Invalid data for Rectangle on line 1"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Invalid data for Rectangle on line 1"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Invalid data for Rectangle on line 1"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Shape must have at least 8 points"}
+{"level":"error","message":"Invalid data for Rectangle"}
+{"level":"error","message":"Invalid data for Rectangle on line 1"}
+{"level":"error","message":"Shape must have at least 4 points"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Shape must have at least 8 points"}
+{"level":"error","message":"Invalid data for Rectangle"}
+{"level":"error","message":"Invalid data for Rectangle on line 1"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"info","message":"points = [\"0,0\",\"10,0\",\"10,10\",\"0,10\"]"}
+{"level":"info","message":"points = [\"0,0\",\"10,0\",\"10,10\",\"0,10\",\"5,5\"]"}
+{"level":"info","message":{"_id":"1","_points":[{"_x":0,"_y":0},{"_x":10,"_y":0},{"_x":10,"_y":10},{"_x":0,"_y":10}]}}
+{"level":"info","message":{"_height":10,"_id":"2","_points":[{"_x":0,"_y":0},{"_x":10,"_y":0},{"_x":10,"_y":10},{"_x":0,"_y":10},{"_x":5,"_y":5}]}}
+{"level":"info","message":"points = [\"0,0\",\"10,0\",\"10,10\",\"0,10\"]"}
+{"level":"info","message":"points = [\"0,0\",\"10,0\",\"10,10\",\"0,10\",\"5,5\"]"}
+{"level":"info","message":{"_id":"1","_points":[{"_x":0,"_y":0},{"_x":10,"_y":0},{"_x":10,"_y":10},{"_x":0,"_y":10}]}}
+{"level":"info","message":{"_height":10,"_id":"2","_points":[{"_x":0,"_y":0},{"_x":10,"_y":0},{"_x":10,"_y":10},{"_x":0,"_y":10},{"_x":5,"_y":5}]}}
+{"level":"info","message":"points = [\"0,0\",\"10,0\",\"10,10\",\"0,10\"]"}
+{"level":"info","message":"points = [\"0,0\",\"10,0\",\"10,10\",\"0,10\",\"5,5\"]"}
+{"level":"info","message":{"_id":"1","_points":[{"_x":0,"_y":0},{"_x":10,"_y":0},{"_x":10,"_y":10},{"_x":0,"_y":10}]}}
+{"level":"info","message":{"_height":10,"_id":"2","_points":[{"_x":0,"_y":0},{"_x":10,"_y":0},{"_x":10,"_y":10},{"_x":0,"_y":10},{"_x":5,"_y":5}]}}
+{"level":"info","message":"points = [\"0,0\",\"10,0\",\"10,10\",\"0,10\"]"}
+{"level":"info","message":"points = [\"0,10\"]"}
+{"level":"error","message":"Shape must have at least 2 points"}
+{"level":"error","message":"Invalid data for Cone"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"info","message":{"_id":"1","_points":[{"_x":0,"_y":0},{"_x":10,"_y":0},{"_x":10,"_y":10},{"_x":0,"_y":10}]}}
+{"level":"info","message":"points = [\"0,0\",\"10,0\",\"10,10\",\"0,10\"]"}
+{"level":"info","message":"points = [\"0,10\"]"}
+{"level":"error","message":"Shape must have at least 2 points"}
+{"level":"error","message":"Invalid data for Cone"}
+{"level":"error","message":"Invalid data for Cone on line 2"}
+{"level":"info","message":{"_id":"1","_points":[{"_x":0,"_y":0},{"_x":10,"_y":0},{"_x":10,"_y":10},{"_x":0,"_y":10}]}}
+{"level":"info","message":"points = [\"0,0\",\"10,0\",\"10,10\",\"0,10\"]"}
+{"level":"info","message":"points = [\"0,0\",\"10,5\"]"}
+{"level":"info","message":{"_id":"1","_points":[{"_x":0,"_y":0},{"_x":10,"_y":0},{"_x":10,"_y":10},{"_x":0,"_y":10}]}}
+{"level":"info","message":{"_height":11.180339887498949,"_id":"2","_points":[{"_x":0,"_y":0},{"_x":10,"_y":5}]}}
+{"level":"info","message":"points = [\"0,0\",\"10,0\",\"10,10\",\"0,10\"]"}
+{"level":"info","message":"points = [\"0,0\",\"10,5\"]"}
+{"level":"info","message":{"_id":"$3333$5#1","_points":[{"_x":0,"_y":0},{"_x":10,"_y":0},{"_x":10,"_y":10},{"_x":0,"_y":10}]}}
+{"level":"info","message":{"_height":11.180339887498949,"_id":"ztgg321#","_points":[{"_x":0,"_y":0},{"_x":10,"_y":5}]}}
+{"level":"info","message":"points = [\"0,0\",\"10,0\",\"10,10\",\"0,10\"]"}
+{"level":"info","message":"points = [\"0,0\",\"10,5\"]"}
+{"level":"info","message":{"_id":"$3333$5#1","_points":[{"_x":0,"_y":0},{"_x":10,"_y":0},{"_x":10,"_y":10},{"_x":0,"_y":10}]}}
+{"level":"info","message":{"_height":11.180339887498949,"_id":"ztgg321#","_points":[{"_x":0,"_y":0},{"_x":10,"_y":5}]}}
+{"level":"info","message":"points = [\"0,0\",\"10,0\",\"10,10\",\"0,10\"]"}
+{"level":"error","message":"Error on line 1: Cannot read properties of undefined (reading 'createPoint')"}
+{"level":"info","message":"points = [\"0,0\",\"10,5\"]"}
+{"level":"error","message":"Error on line 2: Cannot read properties of undefined (reading 'createPoint')"}

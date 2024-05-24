@@ -1,0 +1,19 @@
+{
+  "name": "patterns-hw",
+  "module": "index.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "ts-jest": "^29.1.2",
+    "tslib": "^2.6.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@types/jest": "^29.5.12",
+    "winston": "^3.13.0"
+  }
+}
