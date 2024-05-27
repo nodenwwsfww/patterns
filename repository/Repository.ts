@@ -48,7 +48,7 @@ export class Repository {
 
     findAllByDistanceRange(min: number, max: number): Shape[] {
         return Array.from(this.figures.values()).filter((shape) => {
-            const distance = shape.points[0].distance(PointFactory.createPoint(0, 0));
+            const distance = shape.points[0].distance(PointFactory.create(0, 0));
             return distance >= min && distance <= max;
         });
     }

@@ -14,10 +14,10 @@ describe('Repository', () => {
 
     it('should add and retrieve shapes by ID', () => {
         const rect = new Rectangle('1', [
-            PointFactory.createPoint(0, 0),
-            PointFactory.createPoint(0, 2),
-            PointFactory.createPoint(2, 2),
-            PointFactory.createPoint(2, 0),
+            PointFactory.create(0, 0),
+            PointFactory.create(0, 2),
+            PointFactory.create(2, 2),
+            PointFactory.create(2, 0),
         ]);
 
         repo.add(rect);
@@ -26,10 +26,10 @@ describe('Repository', () => {
 
     it('should remove shapes by ID', () => {
         const rect = new Rectangle('1', [
-            PointFactory.createPoint(0, 0),
-            PointFactory.createPoint(0, 2),
-            PointFactory.createPoint(2, 2),
-            PointFactory.createPoint(2, 0),
+            PointFactory.create(0, 0),
+            PointFactory.create(0, 2),
+            PointFactory.create(2, 2),
+            PointFactory.create(2, 0),
         ]);
 
         repo.add(rect);
@@ -39,16 +39,16 @@ describe('Repository', () => {
 
     it('should find all shapes in the first quadrant', () => {
         const rect1 = new Rectangle('1', [
-            PointFactory.createPoint(0, 0),
-            PointFactory.createPoint(0, 2),
-            PointFactory.createPoint(2, 2),
-            PointFactory.createPoint(2, 0),
+            PointFactory.create(0, 0),
+            PointFactory.create(0, 2),
+            PointFactory.create(2, 2),
+            PointFactory.create(2, 0),
         ]);
         const rect2 = new Rectangle('2', [
-            PointFactory.createPoint(1, 1),
-            PointFactory.createPoint(1, 3),
-            PointFactory.createPoint(3, 3),
-            PointFactory.createPoint(3, 1),
+            PointFactory.create(1, 1),
+            PointFactory.create(1, 3),
+            PointFactory.create(3, 3),
+            PointFactory.create(3, 1),
         ]);
 
         repo.add(rect1);
@@ -61,16 +61,16 @@ describe('Repository', () => {
 
     it('should sort shapes by ID', () => {
         const rect1 = new Rectangle('1', [
-            PointFactory.createPoint(0, 0),
-            PointFactory.createPoint(0, 2),
-            PointFactory.createPoint(2, 2),
-            PointFactory.createPoint(2, 0),
+            PointFactory.create(0, 0),
+            PointFactory.create(0, 2),
+            PointFactory.create(2, 2),
+            PointFactory.create(2, 0),
         ]);
         const rect2 = new Rectangle('2', [
-            PointFactory.createPoint(1, 1),
-            PointFactory.createPoint(1, 3),
-            PointFactory.createPoint(3, 3),
-            PointFactory.createPoint(3, 1),
+            PointFactory.create(1, 1),
+            PointFactory.create(1, 3),
+            PointFactory.create(3, 3),
+            PointFactory.create(3, 1),
         ]);
 
         repo.add(rect2);
@@ -83,15 +83,15 @@ describe('Repository', () => {
 
     it('should sort shapes by name', () => {
         const rect = new Rectangle('1', [
-            PointFactory.createPoint(0, 0),
-            PointFactory.createPoint(0, 2),
-            PointFactory.createPoint(2, 2),
-            PointFactory.createPoint(2, 0),
+            PointFactory.create(0, 0),
+            PointFactory.create(0, 2),
+            PointFactory.create(2, 2),
+            PointFactory.create(2, 0),
         ]);
         const cone = new Cone('2', [
-            PointFactory.createPoint(0, 0, 3),
-            PointFactory.createPoint(0, 0, 0),
-            PointFactory.createPoint(1, 0, 0),
+            PointFactory.create(0, 0, 3),
+            PointFactory.create(0, 0, 0),
+            PointFactory.create(1, 0, 0),
         ]);
 
         repo.add(rect);
@@ -104,16 +104,16 @@ describe('Repository', () => {
 
     it('should sort shapes by X coordinate of the first point', () => {
         const rect1 = new Rectangle('1', [
-            PointFactory.createPoint(2, 0),
-            PointFactory.createPoint(2, 2),
-            PointFactory.createPoint(4, 2),
-            PointFactory.createPoint(4, 0),
+            PointFactory.create(2, 0),
+            PointFactory.create(2, 2),
+            PointFactory.create(4, 2),
+            PointFactory.create(4, 0),
         ]);
         const rect2 = new Rectangle('2', [
-            PointFactory.createPoint(1, 1),
-            PointFactory.createPoint(1, 3),
-            PointFactory.createPoint(3, 3),
-            PointFactory.createPoint(3, 1),
+            PointFactory.create(1, 1),
+            PointFactory.create(1, 3),
+            PointFactory.create(3, 3),
+            PointFactory.create(3, 1),
         ]);
 
         repo.add(rect1);
@@ -126,16 +126,16 @@ describe('Repository', () => {
 
     it('should sort shapes by Y coordinate of the first point', () => {
         const rect1 = new Rectangle('1', [
-            PointFactory.createPoint(0, 2),
-            PointFactory.createPoint(0, 4),
-            PointFactory.createPoint(2, 4),
-            PointFactory.createPoint(2, 2),
+            PointFactory.create(0, 2),
+            PointFactory.create(0, 4),
+            PointFactory.create(2, 4),
+            PointFactory.create(2, 2),
         ]);
         const rect2 = new Rectangle('2', [
-            PointFactory.createPoint(1, 1),
-            PointFactory.createPoint(1, 3),
-            PointFactory.createPoint(3, 3),
-            PointFactory.createPoint(3, 1),
+            PointFactory.create(1, 1),
+            PointFactory.create(1, 3),
+            PointFactory.create(3, 3),
+            PointFactory.create(3, 1),
         ]);
 
         repo.add(rect1);
@@ -148,14 +148,14 @@ describe('Repository', () => {
 
     it('should sort shapes by Z coordinate of the first point', () => {
         const cone1 = new Cone('1', [
-            PointFactory.createPoint(0, 0, 2), // Apex
-            PointFactory.createPoint(0, 0, 0), // Center of base
-            PointFactory.createPoint(1, 0, 0),
+            PointFactory.create(0, 0, 2), // Apex
+            PointFactory.create(0, 0, 0), // Center of base
+            PointFactory.create(1, 0, 0),
         ]);
         const cone2 = new Cone('2', [
-            PointFactory.createPoint(0, 0, 3), // Apex
-            PointFactory.createPoint(0, 0, 0), // Center of base
-            PointFactory.createPoint(1, 0, 0),
+            PointFactory.create(0, 0, 3), // Apex
+            PointFactory.create(0, 0, 0), // Center of base
+            PointFactory.create(1, 0, 0),
         ]);
 
         repo.add(cone2);

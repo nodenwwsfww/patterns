@@ -20,22 +20,21 @@ DataReader.read(filePath)
             shapes.forEach(shape => repo.add(shape));
 
             logger.info(`Shapes = ${JSON.stringify(shapes)}`);
+        // Example sorting and searching
+        const sortedById = repo.sort(ShapeComparator.byId);
+        logger.info(`Shapes sorted by ID: ${JSON.stringify(sortedById)}`);
 
-            // Example sorting and searching
-            const sortedById = repo.sort(ShapeComparator.byId);
-            logger.info(`Shapes sorted by ID: ${JSON.stringify(sortedById)}`);
+        const sortedByName = repo.sort(ShapeComparator.byName);
+        logger.info(`Shapes sorted by Name: ${JSON.stringify(sortedByName)}`);
 
-            const sortedByName = repo.sort(ShapeComparator.byName);
-            logger.info(`Shapes sorted by Name: ${JSON.stringify(sortedByName)}`);
+        const sortedByX = repo.sort(ShapeComparator.byX);
+        logger.info(`Shapes sorted by X coordinate: ${JSON.stringify(sortedByX)}`);
 
-            const sortedByX = repo.sort(ShapeComparator.byX);
-            logger.info(`Shapes sorted by X coordinate: ${JSON.stringify(sortedByX)}`);
+        const sortedByY = repo.sort(ShapeComparator.byY);
+        logger.info(`Shapes sorted by Y coordinate: ${JSON.stringify(sortedByY)}`);
 
-            const sortedByY = repo.sort(ShapeComparator.byY);
-            logger.info(`Shapes sorted by Y coordinate: ${JSON.stringify(sortedByY)}`);
-
-            const sortedByZ = repo.sort(ShapeComparator.byZ);
-            logger.info(`Shapes sorted by Z coordinate: ${JSON.stringify(sortedByZ)}`);
+        const sortedByZ = repo.sort(ShapeComparator.byZ);
+        logger.info(`Shapes sorted by Z coordinate: ${JSON.stringify(sortedByZ)}`);
     })
     .catch(error => {
             logger.error(`Failed to read and process shapes: ${error.message}`);
