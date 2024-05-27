@@ -1,69 +1,69 @@
 import { logger } from './utils/logger';
 import * as fs from 'fs';
-import {RectangleValidator} from "./validators/RectangleValidator";
-import {ConeValidator} from "./validators/ConeValidator";
-import { Shape } from './geometry/Shape/Shape';
-import {PointFactory} from "./factories/PointFactory";
-import {RectangleFactory} from "./factories/RectangleFactory";
-import {ConeFactory} from "./factories/ConeFactory";
+
+export interface ParsedLine {
+  figureType: string;
+  id: string;
+  points: string[];
+}
 
 export class DataReader {
-  static read(filePath: string): Shape[] {
-    const content = fs.readFileSync(filePath, 'utf-8');
-    const lines = content.split('\n');
+  static async read(filePath: string): Promise<ParsedLine[]> {
+    try {
+      // Check if file exists
+      await fs.promises.access(filePath);
+    } catch (error) {
+      logger.error(`File not found: ${filePath}`);
+      throw new Error(`File not found: ${filePath}`);
+    }
 
-    const figures: Shape[] = [];
+    try {
+      const content = await fs.promises.readFile(filePath, 'utf-8');
+      const lines = content.split('\n');
 
-    lines.forEach((line, index) => {
-      const [figureType, id, pointsData] = line.split(';');
-      const solidNumbers = pointsData
-        .replace(/\r/g, '')
-        .split(',');
+      const parsedLines: ParsedLine[] = [];
 
-      const points = solidNumbers.reduce((acc, point, index, array) => {
-        if (index % 2 === 0 && array[index + 1]) {
-          acc.push(point + ',' + array[index + 1]);
+      for (const [index, line] of lines.entries()) {
+        const [figureType, id, pointsData] = line.split(';');
+
+        if (!figureType) {
+          logger.error(`Missing figure type on line ${index + 1}: ${line}`);
+          continue;
         }
-        return acc;
-      }, [] as string[]);
-      logger.info(`points = ${JSON.stringify(points)}`);
-
-      try {
-        if (figureType === 'Rectangle') {
-          const isValid = RectangleValidator.validateData(points);
-          if (!isValid) {
-            logger.error(`Invalid data for Rectangle on line ${index + 1}`);
-            return;
-          }
-
-          const rectangle =
-            RectangleFactory.createRectangle(id, points.map(PointFactory.fromString));
-
-          figures.push(rectangle);
-        } else if (figureType === 'Cone') {
-          const isValid = ConeValidator.validateData(points);
-          if (!isValid) {
-            logger.error(`Invalid data for Cone on line ${index + 1}`);
-            return;
-          }
-
-          const cone = ConeFactory.createCone(id, points.map(PointFactory.fromString));
-          figures.push(cone);
-        } else {
-          if (line.trim() !== '') {
-            logger.error(`Invalid figure type on line ${index + 1}: ${figureType}`);
-          }
-          return;
+        if (!id) {
+          logger.error(`Missing ID on line ${index + 1}: ${line}`);
+          continue;
         }
-      } catch (error) {
-        if (error instanceof Error) {
-          logger.error(`Error on line ${index + 1}: ${error.message}`);
-        } else {
-          logger.error(`An unknown error occurred on line ${index + 1}`);
+        if (!pointsData) {
+          logger.error(`Missing points data on line ${index + 1}: ${line}`);
+          continue;
         }
+
+        const solidNumbers = pointsData.replace(/\r/g, '').split(',');
+
+        if (solidNumbers.length % 2 !== 0) {
+          logger.error(`Invalid points data on line ${index + 1}: ${pointsData}`);
+          continue;
+        }
+
+        const points = solidNumbers.reduce((acc, point, idx, array) => {
+          if (idx % 2 === 0 && array[idx + 1]) {
+            acc.push(point + ',' + array[idx + 1]);
+          }
+          return acc;
+        }, [] as string[]);
+
+        logger.info(`points = ${JSON.stringify(points)}`);
+
+        parsedLines.push({ figureType, id, points });
       }
-    });
 
-    return figures;
+      return parsedLines;
+    } catch (error) {
+      if (error instanceof Error) {
+        logger.error(`Error reading file: ${error.message}`);
+      }
+      throw error;
+    }
   }
 }

@@ -1,22 +1,16 @@
-import { ShapeValidator } from '../validators/ShapeValidator';
-import {logger} from "../utils/logger";
-import { Point } from '../geometry/Point/Point';
+import { ShapeValidator } from './ShapeValidator';
 import {PointFactory} from "../factories/PointFactory";
 
-export class ConeValidator {
-  static validateData(points: string[]): boolean {
-    const isValidShape = ShapeValidator.validateData(points, 2);
+export class ConeValidator implements ShapeValidator {
+  validateData(points: string[]): boolean {
+    if (points.length !== 3) return false;
 
-    if (!isValidShape) {
-      logger.error(`Invalid data for Cone`)
-      return false;
-    }
+    const pointObjects = points.map(PointFactory.fromString);
+    const [apex, baseCenter, baseEdge] = pointObjects;
 
-    return points.length >= 2 && this.isValidCone(points.map(PointFactory.fromString));
-  }
+    const radius = baseCenter.distance(baseEdge);
+    const height = apex.distance(baseCenter);
 
-  static isValidCone(points: Point[]): boolean {
-    const distance = points[0].distance(points[1]);
-    return distance > 0;
+    return radius > 0 && height > 0;
   }
 }

@@ -1,11 +1,12 @@
-import { Point } from "../geometry/Point/Point";
+import { Point } from '../geometry/Point/Point';
 
 export class PointFactory {
-  static createPoint(x: number, y: number): Point {
-    return new Point(x, y);
+  static createPoint(x: number, y: number, z: number = 0): Point {
+    return new Point(x, y, z);
   }
-  static fromString(pointString: string): Point {
-    const [x, y] = pointString.split(',').map(Number);
-    return this.createPoint(x, y);
+
+  static fromString(pointStr: string): Point {
+    const [x, y, z = 0] = pointStr.split(',').map(Number);
+    return PointFactory.createPoint(x, y, z);
   }
 }

@@ -1,8 +1,11 @@
-import { Rectangle } from "../geometry/Rectangle/Rectangle";
-import { Point } from "../geometry/Point/Point";
+import { ShapeFactory } from './ShapeFactory';
+import { Shape } from '../geometry/Shape/Shape';
+import { PointFactory } from './PointFactory';
+import { Rectangle } from '../geometry/Rectangle/Rectangle';
 
-export class RectangleFactory {
-  static createRectangle(id: string, points: Point[]): Rectangle {
-    return new Rectangle(id, points);
+export class RectangleFactory implements ShapeFactory {
+  create(id: string, points: string[]): Shape {
+    const pointObjects = points.map(PointFactory.fromString);
+    return new Rectangle(id, pointObjects);
   }
 }

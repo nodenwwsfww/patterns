@@ -72,3 +72,15 @@
 {"level":"error","message":"Invalid data for Cone on line 2"}
 {"level":"error","message":"Error on line 1: Cannot read properties of undefined (reading 'createPoint')"}
 {"level":"error","message":"Error on line 2: Cannot read properties of undefined (reading 'createPoint')"}
+{"level":"error","message":"Error on line 1: undefined is not an object (evaluating 'this.createPoint')"}
+{"level":"error","message":"Error on line 2: undefined is not an object (evaluating 'this.createPoint')"}
+{"level":"error","message":"Invalid points data on line 2: 0,0,10,5,5"}
+{"level":"error","message":"Invalid points data on line 2: 0,0,10,5,5"}
+{"level":"error","message":"Invalid points data on line 2: 0,0,10,5,5"}
+{"level":"error","message":"Invalid points data on line 2: 0,0,10,5,5"}
+{"level":"error","message":"Invalid points data on line 2: 0,0,10,5,5"}
+{"level":"error","message":"Invalid points data on line 2: 0,0,10,5,5"}
+{"level":"error","message":"Invalid points data on line 2: 0,0,10,5,5"}
+{"level":"error","message":"Invalid points data on line 2: 0,0,10,5,5"}
+{"level":"error","message":"Invalid points data on line 2: 0,0,10,5,5"}
+{"level":"error","message":"Invalid points data on line 2: 0,0,10,5,5"}

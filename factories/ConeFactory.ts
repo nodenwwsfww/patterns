@@ -1,8 +1,11 @@
-import { Cone } from "../geometry/Cone/Cone";
-import { Point } from "../geometry/Point/Point";
+import { ShapeFactory } from './ShapeFactory';
+import { Shape } from '../geometry/Shape/Shape';
+import { PointFactory } from './PointFactory';
+import { Cone } from '../geometry/Cone/Cone';
 
-export class ConeFactory {
-  static createCone(id: string, points: Point[]): Cone {
-    return new Cone(id, points);
+export class ConeFactory implements ShapeFactory {
+  create(id: string, points: string[]): Shape {
+    const pointObjects = points.map(PointFactory.fromString);
+    return new Cone(id, pointObjects);
   }
 }
