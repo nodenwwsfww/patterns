@@ -166,4 +166,92 @@ describe('Repository', () => {
         expect(sortedShapes[0].points[0].z).toBe(2);
         expect(sortedShapes[1].points[0].z).toBe(3);
     });
+
+    it('should find all shapes by name', () => {
+        const rect1 = new Rectangle('1', [
+            PointFactory.create(0, 0),
+            PointFactory.create(0, 2),
+            PointFactory.create(2, 2),
+            PointFactory.create(2, 0),
+        ]);
+        const rect2 = new Rectangle('2', [
+            PointFactory.create(1, 1),
+            PointFactory.create(1, 3),
+            PointFactory.create(3, 3),
+            PointFactory.create(3, 1),
+        ]);
+
+        repo.add(rect1);
+        repo.add(rect2);
+
+        const shapesByName = repo.findAllByName('Rectangle');
+        expect(shapesByName).toContain(rect1);
+        expect(shapesByName).toContain(rect2);
+    });
+
+    it('should find all shapes in the first quadrant', () => {
+        const rect1 = new Rectangle('1', [
+            PointFactory.create(0, 0),
+            PointFactory.create(0, 2),
+            PointFactory.create(2, 2),
+            PointFactory.create(2, 0),
+        ]);
+        const rect2 = new Rectangle('2', [
+            PointFactory.create(1, 1),
+            PointFactory.create(1, 3),
+            PointFactory.create(3, 3),
+            PointFactory.create(3, 1),
+        ]);
+
+        repo.add(rect1);
+        repo.add(rect2);
+
+        const shapesInFirstQuadrant = repo.findAllInFirstQuadrant();
+        expect(shapesInFirstQuadrant).toContain(rect2);
+        expect(shapesInFirstQuadrant).not.toContain(rect1);
+    });
+
+    it('should find all shapes by area range', () => {
+        const rect1 = new Rectangle('1', [
+            PointFactory.create(0, 0),
+            PointFactory.create(0, 2),
+            PointFactory.create(2, 2),
+            PointFactory.create(2, 0),
+        ]);
+        const rect2 = new Rectangle('2', [
+            PointFactory.create(1, 1),
+            PointFactory.create(1, 3),
+            PointFactory.create(3, 3),
+            PointFactory.create(3, 1),
+        ]);
+
+        repo.add(rect1);
+        repo.add(rect2);
+
+        const shapesByAreaRange = repo.findAllByAreaRange(1, 5);
+        expect(shapesByAreaRange).toContain(rect1);
+        expect(shapesByAreaRange).toContain(rect2);
+    });
+
+    it('should find all shapes by distance range', () => {
+        const rect1 = new Rectangle('1', [
+            PointFactory.create(0, 0),
+            PointFactory.create(0, 2),
+            PointFactory.create(2, 2),
+            PointFactory.create(2, 0),
+        ]);
+        const rect2 = new Rectangle('2', [
+            PointFactory.create(1, 1),
+            PointFactory.create(1, 3),
+            PointFactory.create(3, 3),
+            PointFactory.create(3, 1),
+        ]);
+
+        repo.add(rect1);
+        repo.add(rect2);
+
+        const shapesByDistanceRange = repo.findAllByDistanceRange(0, 1);
+        expect(shapesByDistanceRange).toContain(rect1);
+        expect(shapesByDistanceRange).not.toContain(rect2);
+    });
 });
