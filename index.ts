@@ -4,7 +4,7 @@ import { NewsEvent } from './NewsEvent';
 
 import { NewsType } from './NewsType';
 import { NewsFactory } from "./NewsFactory";
-import {NewsEventAdapter} from "./NewsEventAdapter";
+import { NewsEventAdapter } from "./NewsEventAdapter";
 
 const factory = new NewsFactory();
 
