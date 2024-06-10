@@ -155,3 +155,7 @@
 {"level":"info","message":"Initiating payment of $100"}
 {"level":"info","message":"Processing payment of $100 through third-party service."}
 {"level":"info","message":"Payment of $100 completed"}
+{"level":"info","message":"NewsObserver: Received event - Type: Sports News, Data: Content of Sports News"}
+{"level":"info","message":"NewsObserver: Received event - Type: Politics News, Data: Content of Politics News"}
+{"level":"info","message":"NewsObserver: Received event - Type: Sports News, Data: Content of Sports News"}
+{"level":"info","message":"NewsObserver: Received event - Type: Politics News, Data: Content of Politics News"}

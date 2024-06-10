@@ -1,18 +1,24 @@
-import { ThirdPartyPaymentService } from './ThirdPartyPaymentService';
-import { PaymentAdapter } from './PaymentAdapter';
-import { LoggingDecorator } from './LoggingDecorator';
-import { ErrorHandlingDecorator } from './ErrorHandlingDecorator';
-import { IPaymentService } from './IPaymentService';
+import { NewsSubject } from './ConcreteSubject';
+import { NewsObserver } from './ConcreteObserver';
+import { NewsEvent, EventAdapter } from './Event';
+import { NewsType } from './NewsType';
+import { NewsFactory } from "./NewsFactory";
 
-// Set up the third-party payment service
-const thirdPartyService = new ThirdPartyPaymentService();
-const paymentAdapter: IPaymentService = new PaymentAdapter(thirdPartyService);
+const factory = new NewsFactory();
 
-// Decorate the adapter with logging and error handling
-const loggingPaymentService: IPaymentService = new LoggingDecorator(paymentAdapter);
-const errorHandledPaymentService: IPaymentService = new ErrorHandlingDecorator(loggingPaymentService);
+const sportsNews = factory.createNews(NewsType.Sports);
+const politicsNews = factory.createNews(NewsType.Politics);
 
-// Use the decorated service to make a payment
-(async () => {
-    await errorHandledPaymentService.pay(100);
-})();
+const newsSubject = new NewsSubject();
+const newsObserver = new NewsObserver();
+
+newsSubject.addObserver(newsObserver);
+
+const sportsEvent = new NewsEvent(sportsNews.getTitle(), sportsNews.getContent());
+const politicsEvent = new NewsEvent(politicsNews.getTitle(), politicsNews.getContent());
+
+const adaptedSportsEvent = new EventAdapter(sportsEvent);
+const adaptedPoliticsEvent = new EventAdapter(politicsEvent);
+
+newsSubject.notifyObservers(adaptedSportsEvent);
+newsSubject.notifyObservers(adaptedPoliticsEvent);
