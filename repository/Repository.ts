@@ -1,10 +1,12 @@
-import { Shape } from '../geometry/Shape/Shape';
-import { Warehouse } from '../warehouse/Warehouse';
-import { PointFactory } from '../factories/PointFactory';
+import {Shape} from "../geometry/Shape/Shape";
+import {Observer} from "../observer/ShapeObserver";
+import {PointFactory} from "../factories/PointFactory";
+import {Warehouse} from "../warehouse/Warehouse";
 
 export class Repository {
     private static instance: Repository;
     private figures: Map<string, Shape> = new Map();
+    private observers: Observer[] = [];
 
     private constructor() {}
 
@@ -17,12 +19,16 @@ export class Repository {
 
     add(shape: Shape): void {
         this.figures.set(shape.id, shape);
-        this.updateWarehouse(shape);
+        this.notifyObservers(shape);
     }
 
     remove(id: string): void {
-        this.figures.delete(id);
-        Warehouse.getInstance().remove(id);
+        const shape = this.figures.get(id);
+        if (shape) {
+            this.figures.delete(id);
+            Warehouse.getInstance().remove(id);
+            this.notifyObservers(shape);
+        }
     }
 
     getById(id: string): Shape | undefined {
@@ -57,7 +63,19 @@ export class Repository {
         return Array.from(this.figures.values()).sort(comparator);
     }
 
-    public updateWarehouse(shape: Shape): void {
+    addObserver(observer: Observer): void {
+        this.observers.push(observer);
+    }
+
+    removeObserver(observer: Observer): void {
+        this.observers = this.observers.filter(obs => obs !== observer);
+    }
+
+    private notifyObservers(shape: Shape): void {
+        this.observers.forEach(observer => observer.update(shape));
+    }
+    // TODO:
+    updateWarehouse(shape: Shape): void {
         const warehouse = Warehouse.getInstance();
         warehouse.update(
             shape.id,
@@ -67,4 +85,3 @@ export class Repository {
         );
     }
 }
-

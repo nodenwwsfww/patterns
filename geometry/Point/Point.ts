@@ -1,33 +1,16 @@
 export class Point {
-  private observers: (() => void)[] = [];
-
   constructor(private _x: number, private _y: number, private _z: number = 0) {}
 
   get x(): number {
     return this._x;
   }
 
-  set x(value: number) {
-    this._x = value;
-    this.notifyObservers();
-  }
-
   get y(): number {
     return this._y;
   }
 
-  set y(value: number) {
-    this._y = value;
-    this.notifyObservers();
-  }
-
   get z(): number {
     return this._z;
-  }
-
-  set z(value: number) {
-    this._z = value;
-    this.notifyObservers();
   }
 
   distance(other: Point): number {
@@ -47,11 +30,4 @@ export class Point {
     return crossProduct.every(component => component === 0);
   }
 
-  subscribe(observer: () => void): void {
-    this.observers.push(observer);
-  }
-
-  private notifyObservers(): void {
-    this.observers.forEach(observer => observer());
-  }
 }
