@@ -1,5 +1,5 @@
-import { Subject, Observer } from './Observer';
-import { Event } from './Event';
+import { Subject, Observer } from './abstract/Observer';
+import { Event } from './abstract/Event';
 
 export class NewsSubject implements Subject {
     private observers: Observer[] = [];

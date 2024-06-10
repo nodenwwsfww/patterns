@@ -1,5 +1,5 @@
-import { Observer } from './Observer';
-import { Event } from './Event';
+import { Observer } from './abstract/Observer';
+import { Event } from './abstract/Event';
 import { logger } from './utils/logger';
 
 export class NewsObserver implements Observer {

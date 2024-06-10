@@ -1,6 +1,6 @@
 import { News, SportsNews, PoliticsNews, TechnologyNews } from './News';
 import { NewsType } from './NewsType';
-import {AbstractFactory, NewsConstructor} from "./AbstractFactory";
+import {AbstractFactory, NewsConstructor} from "./abstract/AbstractFactory";
 
 export class NewsFactory implements AbstractFactory {
     private newsMap: Map<NewsType, NewsConstructor>;

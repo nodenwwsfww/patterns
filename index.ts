@@ -1,8 +1,10 @@
 import { NewsSubject } from './NewsSubject';
 import { NewsObserver } from './NewsObserver';
-import { NewsEvent, EventAdapter } from './Event';
+import { NewsEvent } from './NewsEvent';
+
 import { NewsType } from './NewsType';
 import { NewsFactory } from "./NewsFactory";
+import {NewsEventAdapter} from "./NewsEventAdapter";
 
 const factory = new NewsFactory();
 
@@ -17,8 +19,8 @@ newsSubject.addObserver(newsObserver);
 const sportsEvent = new NewsEvent(sportsNews.getTitle(), sportsNews.getContent());
 const politicsEvent = new NewsEvent(politicsNews.getTitle(), politicsNews.getContent());
 
-const adaptedSportsEvent = new EventAdapter(sportsEvent);
-const adaptedPoliticsEvent = new EventAdapter(politicsEvent);
+const adaptedSportsEvent = new NewsEventAdapter(sportsEvent);
+const adaptedPoliticsEvent = new NewsEventAdapter(politicsEvent);
 
 newsSubject.notifyObservers(adaptedSportsEvent);
 newsSubject.notifyObservers(adaptedPoliticsEvent);
