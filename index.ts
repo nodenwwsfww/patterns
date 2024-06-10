@@ -1,5 +1,5 @@
-import { NewsSubject } from './ConcreteSubject';
-import { NewsObserver } from './ConcreteObserver';
+import { NewsSubject } from './NewsSubject';
+import { NewsObserver } from './NewsObserver';
 import { NewsEvent, EventAdapter } from './Event';
 import { NewsType } from './NewsType';
 import { NewsFactory } from "./NewsFactory";
