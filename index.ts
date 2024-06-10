@@ -1,29 +1,18 @@
-import { DataReader } from './DataReader';
-import { ShapeManager } from './ShapeManager';
-import { logger } from './utils/logger';
-import { registerFactories, registerValidators } from './registry';
-import {Repository} from './repository/Repository';
-import {ShapeObserver} from "./observer/ShapeObserver";
+import { ThirdPartyPaymentService } from './ThirdPartyPaymentService';
+import { PaymentAdapter } from './PaymentAdapter';
+import { LoggingDecorator } from './LoggingDecorator';
+import { ErrorHandlingDecorator } from './ErrorHandlingDecorator';
+import { IPaymentService } from './IPaymentService';
 
-const filePath = './data/shapes.txt';
+// Set up the third-party payment service
+const thirdPartyService = new ThirdPartyPaymentService();
+const paymentAdapter: IPaymentService = new PaymentAdapter(thirdPartyService);
 
-// Register factories and validators
-registerFactories();
-registerValidators();
+// Decorate the adapter with logging and error handling
+const loggingPaymentService: IPaymentService = new LoggingDecorator(paymentAdapter);
+const errorHandledPaymentService: IPaymentService = new ErrorHandlingDecorator(loggingPaymentService);
 
-DataReader.read(filePath)
-    .then(parsedLines => {
-        const validLines = ShapeManager.validateShapes(parsedLines);
-        const shapes = ShapeManager.createShapes(validLines);
-        const repo = Repository.getInstance();
-        const shapeObserver = new ShapeObserver();
-
-        repo.addObserver(shapeObserver);
-
-        shapes.forEach(shape => repo.add(shape));
-        logger.info(`Shapes = ${JSON.stringify(shapes)}`);
-
-    })
-    .catch(error => {
-            logger.error(`Failed to read and process shapes: ${error.message}`);
-    });
+// Use the decorated service to make a payment
+(async () => {
+    await errorHandledPaymentService.pay(100);
+})();
