@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {BookList} from "./components/BookList";
+import {AddBook} from "./components/AddBook";
+import React, {useEffect, useState} from "react";
+import {BookService} from "./services/BookService.ts";
+import {BookRepository} from "./repositories/BookRepository.ts";
+import {createBook} from "./utils/bookHelpers.ts";
+import {AlertLogger, ConsoleLogger, TimestampLogger} from "./decorators/LoggerDecorator.ts";
+import {BookServiceLoggerDecorator} from "./decorators/BookServiceLoggerDecorator.ts";
 
-function App() {
-  const [count, setCount] = useState(0)
+const bookRepository = BookRepository.getInstance();
+const originalBookService = BookService.getInstance(bookRepository);
+const logger = new TimestampLogger(new ConsoleLogger());
+const bookService = new BookServiceLoggerDecorator(originalBookService, logger);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+const alertLogger = new AlertLogger();
 
-export default App
+const App: React.FC = () => {
+    const [books, setBooks] = useState<Book[]>([]);
+
+    useEffect(() => {
+        const initialBooks = bookService.getBooks();
+        setBooks(initialBooks);
+    }, []);
+
+
+    const handleAddBook = (params: AddBookParams) => {
+        const newBook = createBook(params);
+        bookService.addBook(newBook);
+        setBooks(bookService.getBooks());
+        alertLogger.log(newBook.title + " added successfully");
+    };
+
+
+    return (
+        <div className="flex flex-col items-center justify-center min-h-screen py-2">
+            <div className="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
+                <div className="flex-1">
+                    <div className="font-medium uppercase text-xl text-indigo-500">Books app</div>
+                    <AddBook onSubmit={handleAddBook} />
+                    <BookList books={books} />
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default App;
